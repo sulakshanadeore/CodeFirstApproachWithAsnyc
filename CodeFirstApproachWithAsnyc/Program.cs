@@ -14,6 +14,8 @@ string cn=builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<HRSecondContext>(options=>options.UseSqlServer(cn));//context will be use in repository
 builder.Services.AddTransient<IDeptRepositiory, DeptRepository>();//Use this in api controller
 
+builder.Services.AddTransient<IEmployeeRepo, EmpRepo>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
